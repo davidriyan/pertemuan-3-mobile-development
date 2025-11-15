@@ -9,35 +9,59 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Hello World'),
-          centerTitle: true,
-          leading: Icon(Icons.arrow_back),
-          toolbarHeight: 100,
-          actions: [Icon(Icons.search)],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.blue, Colors.white],
-                begin: FractionalOffset.topLeft,
-                end: FractionalOffset.bottomRight,
-              ),
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text('Hello World'),
+        centerTitle: true,
+        leading: Icon(Icons.arrow_back),
+        toolbarHeight: 100,
+        actions: [Icon(Icons.search)],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue, Colors.white, Colors.green],
             ),
           ),
         ),
-
-        body: Text(
-          'Hello World saokdhasofhaosfhaoifh',
-          style: TextStyle(
-            fontSize: 40,
-            color: Colors.amber,
-            fontWeight: FontWeight.w900,
+      ),
+      body: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            'data 1',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
-        ),
+          Text(
+            'data 2',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+          ),
+          Text(
+            'data 3',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Tombol di klik!');
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Snackbar muncul')));
+        },
+        child: Icon(Icons.check),
       ),
     );
   }
