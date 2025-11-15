@@ -10,8 +10,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // appBar: AppBar(backgroundColor: Colors.blue, title: Text('data')),
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: Text('Hello World'),
+          centerTitle: true,
+          leading: Icon(Icons.arrow_back),
+          toolbarHeight: 100,
+          actions: [Icon(Icons.search)],
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blue, Colors.white],
+                begin: FractionalOffset.topLeft,
+                end: FractionalOffset.bottomRight,
+              ),
+            ),
+          ),
+        ),
+
         body: Text(
           'Hello World saokdhasofhaosfhaoifh',
           style: TextStyle(
