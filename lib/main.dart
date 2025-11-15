@@ -36,9 +36,9 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
+      body: Row(
         // crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'data 1',
@@ -52,14 +52,34 @@ class HomePage extends StatelessWidget {
             'data 3',
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
+          Container(
+            // color: Colors.amberAccent,
+            height: 100,
+            width: 100,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.red, width: 10),
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('Tombol di klik!');
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text('Snackbar muncul')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Snackbar muncul',
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+              backgroundColor: Colors.amberAccent,
+              duration: Duration(seconds: 3),
+              action: SnackBarAction(
+                label: 'Close',
+                onPressed: () {},
+                backgroundColor: Colors.black,
+              ),
+            ),
+          );
         },
         child: Icon(Icons.check),
       ),
