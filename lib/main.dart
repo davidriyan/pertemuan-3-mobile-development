@@ -64,7 +64,6 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Tombol di klik!');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
